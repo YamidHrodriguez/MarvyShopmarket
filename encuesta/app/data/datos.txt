@@ -1,0 +1,130 @@
+
+PERSONA ID 1: 1
+NOMBRE TIENDA: Tienda Sofia
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: diariamente
+PREGUNTA 4: si
+PREGUNTA 5: 10
+PREGUNTA 6: 7
+PREGUNTA 7: si
+PREGUNTA 8: si
+PREGUNTA 9: si
+PREGUNTA 10:  Beneficios economicos, beneficios al cliente, que se abra la mente al cliente, innovador
+
+PERSONA ID 2: 2
+NOMBRE TIENDA: Tienda Johanita
+PREGUNTA 1: no
+PREGUNTA 2: no
+PREGUNTA 3: no
+PREGUNTA 4: no
+PREGUNTA 5: 4
+PREGUNTA 6: 3
+PREGUNTA 7: si
+PREGUNTA 8: si
+PREGUNTA 9: si
+PREGUNTA 10:  Ninguna
+
+PERSONA ID 3: 3
+NOMBRE TIENDA: Los Acasos
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: no
+PREGUNTA 4: no
+PREGUNTA 5: 1
+PREGUNTA 6: 2
+PREGUNTA 7: si
+PREGUNTA 8: no
+PREGUNTA 9: no
+PREGUNTA 10:  Acompañar la contabilidad, capacitar
+
+PERSONA ID 4: 4
+NOMBRE TIENDA: 
+PREGUNTA 1: no
+PREGUNTA 2: no
+PREGUNTA 3: no
+PREGUNTA 4: no
+PREGUNTA 5: 7
+PREGUNTA 6: 7
+PREGUNTA 7: si
+PREGUNTA 8: no
+PREGUNTA 9: si
+PREGUNTA 10:  Inventarios
+
+PERSONA ID 5: 5
+NOMBRE TIENDA: Tienda Prosperidad
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: mensualmente
+PREGUNTA 4: no
+PREGUNTA 5: 10
+PREGUNTA 6: 10
+PREGUNTA 7: si
+PREGUNTA 8: si
+PREGUNTA 9: si
+PREGUNTA 10:  Llevar el inventario. Que productos ha vendido y que no.
+
+PERSONA ID 6: 6
+NOMBRE TIENDA: Panaderia Bumanguesa
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: diariamente
+PREGUNTA 4: si
+PREGUNTA 5: 7
+PREGUNTA 6: 6
+PREGUNTA 7: si
+PREGUNTA 8: si
+PREGUNTA 9: si
+PREGUNTA 10:  llevar el registro de ventas, gastos
+
+PERSONA ID 7: 7
+NOMBRE TIENDA: Surtimercado Yuliana
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: mensualmente
+PREGUNTA 4: si
+PREGUNTA 5: 3
+PREGUNTA 6: 5
+PREGUNTA 7: si
+PREGUNTA 8: si
+PREGUNTA 9: si
+PREGUNTA 10:  Adecuado registro, organizacion de datos, analisis de los elementos, identificar productos, inventario, aviso de productos que hacen falta o recibos a pagar, calendario.
+
+PERSONA ID 8: 8
+NOMBRE TIENDA: Tienda Ramón
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: diariamente
+PREGUNTA 4: no
+PREGUNTA 5: 10
+PREGUNTA 6: 10
+PREGUNTA 7: no
+PREGUNTA 8: no
+PREGUNTA 9: si
+PREGUNTA 10:  Ninguna
+
+PERSONA ID 9: 9
+NOMBRE TIENDA: Lizpan
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: no
+PREGUNTA 4: no
+PREGUNTA 5: 8
+PREGUNTA 6: 8
+PREGUNTA 7: no
+PREGUNTA 8: no
+PREGUNTA 9: si
+PREGUNTA 10:  Que sea facil de llevar la contabilidad
+
+PERSONA ID 10: 10
+NOMBRE TIENDA: Panaderia la especial
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: no
+PREGUNTA 4: no
+PREGUNTA 5: 8
+PREGUNTA 6: 10
+PREGUNTA 7: si
+PREGUNTA 8: no
+PREGUNTA 9: si
+PREGUNTA 10:  Publicidad, seguridad
