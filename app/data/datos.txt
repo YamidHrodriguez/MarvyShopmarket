@@ -24,3 +24,55 @@ PREGUNTA 7: si
 PREGUNTA 8: si
 PREGUNTA 9: si
 PREGUNTA 10:  Ninguna
+
+PERSONA ID 3: 3
+NOMBRE TIENDA: Los Acasos
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: no
+PREGUNTA 4: no
+PREGUNTA 5: 1
+PREGUNTA 6: 2
+PREGUNTA 7: si
+PREGUNTA 8: no
+PREGUNTA 9: no
+PREGUNTA 10:  Acompañar la contabilidad, capacitar
+
+PERSONA ID 4: 4
+NOMBRE TIENDA: 
+PREGUNTA 1: no
+PREGUNTA 2: no
+PREGUNTA 3: no
+PREGUNTA 4: no
+PREGUNTA 5: 7
+PREGUNTA 6: 7
+PREGUNTA 7: si
+PREGUNTA 8: no
+PREGUNTA 9: si
+PREGUNTA 10:  Inventarios
+
+PERSONA ID 5: 5
+NOMBRE TIENDA: Tienda Prosperidad
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: mensualmente
+PREGUNTA 4: no
+PREGUNTA 5: 10
+PREGUNTA 6: 10
+PREGUNTA 7: si
+PREGUNTA 8: si
+PREGUNTA 9: si
+PREGUNTA 10:  Llevar el inventario. Que productos ha vendido y que no.
+
+PERSONA ID 6: 6
+NOMBRE TIENDA: Panaderia Bumanguesa
+PREGUNTA 1: no
+PREGUNTA 2: si
+PREGUNTA 3: diariamente
+PREGUNTA 4: si
+PREGUNTA 5: 7
+PREGUNTA 6: 6
+PREGUNTA 7: si
+PREGUNTA 8: si
+PREGUNTA 9: si
+PREGUNTA 10:  llevar el registro de ventas, gastos
