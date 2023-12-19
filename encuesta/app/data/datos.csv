@@ -8,6 +8,7 @@
 8,Tienda Ramón,no,si,diariamente,no,10,10,no,no,si,Ninguna
 9,Lizpan,no,si,no,no,8,8,no,no,si,Que sea facil de llevar la contabilidad
 10,Panaderia la especial,no,si,no,no,8,10,si,no,si,"Publicidad, seguridad"
+<<<<<<< HEAD
 11,Tienda Ochoa,no,si,diariamente,no,4,5,no,si,no,Ninguna
 12,Charcuteria Estrella,no,si,semanalmente,no,7,7,si,si,si,"Llevar inventario, registro de precios, control de ventas dinero que ingresa y sale."
 13,Libreria la Muñeca,no,si,mensualmente,no,5,3,si,si,si,La manera de manejar el inventario
@@ -18,3 +19,5 @@
 18,Ninguno,no,si,no,no,5,5,no,si,si,Llevar inventario y contabilidad de dinero.
 19,Merkexpress la Feria,no,si,no,no,5,5,si,si,si,"Llevar cuentas claras, seguridad en la informacion, facilidad para buscar cuentas antiguas."
 20,Panaderia La Feria,no,si,semanalmente,si,5,8,si,no,si,"domicilios, contabilidad-"
+=======
+>>>>>>> b5c31b02ba482707cef2c296d907a69cc8537be9

@@ -128,6 +128,7 @@ PREGUNTA 7: si
 PREGUNTA 8: no
 PREGUNTA 9: si
 PREGUNTA 10:  Publicidad, seguridad
+<<<<<<< HEAD
 
 PERSONA ID 11: 11
 NOMBRE TIENDA: Tienda Ochoa
@@ -258,3 +259,5 @@ PREGUNTA 7: si
 PREGUNTA 8: no
 PREGUNTA 9: si
 PREGUNTA 10:  domicilios, contabilidad-
+=======
+>>>>>>> b5c31b02ba482707cef2c296d907a69cc8537be9
