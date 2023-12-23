@@ -23,7 +23,7 @@ app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Ruta para la página principal
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
@@ -31,22 +31,31 @@ app.get('/home', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 });
-// Configura la conexión
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'nidian56',
-  database: 'Marvy_Shopmarket'
+
+
+app.post('/redirigir', (req, res) => {
+  // Configura la conexión
+  const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'nidian56',
+    database: 'Marvy_Shopmarket'
+  });
+
+  // Conéctate a la base de datos
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error al conectar a MySQL:', err);
+    } else {
+      console.log('Conexión exitosa a MySQL');
+      // Ahora puedes realizar consultas
+    }
+  });
+  res.redirect('/registros');
 });
 
-// Conéctate a la base de datos
-connection.connect((err) => {
-  if (err) {
-    console.error('Error al conectar a MySQL:', err);
-  } else {
-    console.log('Conexión exitosa a MySQL');
-    // Ahora puedes realizar consultas
-  }
+
+app.get('/registros', (req, res) => {
+    // Obtener el valor del input desde la solicitud
+    res.sendFile(path.join(__dirname, 'views', 'registro.html'));
 });
-
-
