@@ -8,19 +8,19 @@ body{
     height: 100%;
     background: #5E5F5F;
 }
-.container{
+#container_login{
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#header-login{
+#header_login{
     margin-top: 2%;
     position: absolute;
 }
 
-#header-login img{
+#header_login img{
     width: 100px;
     height: 100px;
 }
@@ -80,25 +80,36 @@ body{
     text-align: center;
     font-size: 1.12rem;
 }
-#login #botons-login{
+#login #botons_login{
     padding-top: 4%;
     display: flex;
     flex-direction: row;
     font-size: 1.15rem;
 }
-#login #botons-login button{
+#login #botons_login button{
     width: 50%;
     height: 50px;
 }
 
-#btnSubmit-login{
+#btnSubmit_login{
     border: #2B513F;
     background: #2B513F;
     color:white;
 }
-#btnSingUp-login{
+#btnSingUp_login{
     border:#00BF66;
     background: #00BF66;
+    color: white;
+}
+#btnSubmit_login:hover{
+    transform:scaleY(111%);
+    border: 2px solid black;
+    background: rgb(16, 16, 16);
+}
+#btnSingUp_login:hover{
+    transform:scaleY(111%);
+    border: 2px solid rgb(109, 109, 109);
+    background: rgb(109, 109, 109); 
     color: white;
 }
 @media(max-width: 992px){
@@ -106,4 +117,120 @@ body{
         margin-top: 7%;
         width: 80%;
     }
+}
+
+/*Estilos para la página de registro*/
+#header_singUp h1{
+    padding: 1%;
+    margin-left: 3%;
+    font-size: 2.4rem;
+}
+#container_singUp{
+    margin-top: -4%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items:center;
+}
+#header_singUp{
+    color: white;
+}
+#singUp{
+    text-align: center;
+    width: 100%;
+    color: rgb(31, 31, 31);
+    display: flex;
+    justify-content: center;
+}
+#signUp #form_singUp{
+    width: 100%;
+}
+#container_singUp #singUp #form_singUp .content-logo{
+    margin-top: 4%;
+    position: absolute;
+    width: 90vw;
+    display: flex; 
+    justify-content: center;
+
+}
+#container_singUp #singUp #form_singUp .content-logo .logo{
+    width: 100px;
+    height: 100px;
+}
+#singUp form #content_singUp{
+    position: inherit;
+    width: 90vw;
+    height: 88vh;
+    display: flex;
+    margin-left: 0%;
+    padding: 0%;
+    background: #f6f6f6;
+    margin-top: 0%;
+    margin-bottom: 2%;
+}
+
+#section_usuario{
+    border-right: 1px solid rgb(33, 33, 33);
+}
+#section_tuTienda, #section_usuario{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+#section_usuario .usuario-title, #section_tuTienda .tutienda-title{
+    font-size: 1.7rem;
+    margin-bottom: 3%;
+}
+
+#section_usuario .inputs{
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#section_tuTienda .inputs:not(.nit){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+    width: 100%;
+}
+#section_tuTienda .inputs label, #section_usuario .inputs label{
+    font-size: 1.6rem;
+    margin-bottom: 2%;
+}
+#section_tuTienda .inputs input, #section_usuario .inputs input{
+    width: 70%;
+    height: 25px;
+}
+#btnSubmit_singUp_content{
+    right: 0;
+    position: relative;
+    margin-left: 67%;
+    margin-top: -7.8%;
+    width: 100%;
+}
+#btnSubmit_singUp{
+    background: #00BF66;
+    border: 1px solid #00BF66;
+    color: white;
+    padding: 2%;
+    width: 15%;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#generar_nit{
+    background: #00BF66;
+    border: 1px solid #00BF66;
+    color: white;
+    margin-left: -0.5%;
+    height: 25px;
+    width: 10%;
 }
