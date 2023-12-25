@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvy Shopmarket | Home </title>
+    <title>Marvy Shopmarket | login</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" type="image/png" href="./images/Marvy_Shopmarket.png">
 </head>
 <body>
     <div id="container_login" class="container">
@@ -13,21 +14,31 @@
         </div>
         <div id="login" class="login">
             <div class="title" id="title_login"><h2>Iniciar sesión</h2></div>
-            <form id="form_login" method="post" action="/redirigir">
+            <form id="form_login" method="post" action="/comprobar">
                 <div class="usuario-login" id="usuario_login">
                     <label for="user">Usuario</label>
-                    <input type="text" name="user" id="user" placeholder="Escribe tu usuario...">
+                    <input type="text" name="user" id="user" placeholder="Escribe tu nombre de usuario...">
                 </div>
                 <div class="contra-login" id="contra_login">
                     <label for="user">Contraseña</label>
                     <input type="password" name="password" id="password" placeholder="Escribe tu contraseña...">
                 </div>
                 <div class="botons-login" id="botons_login">
-                    <button type="submit" name="btnSubmit_login" class="btnSubmit-login" id="btnSubmit_login">Iniciar sesión</button>
-                    <button class="btnSingUp-login" name="btnSingUp_login" id="btnSingUp_login">Registrarse</button>
+                    <button type="submit" name="btnSubmit_login" class="btnSubmit-login" id="btnSubmit_login">Iniciar sesión</button> 
                 </div>
             </form>
+            <form  id="submit_SingUp" action="/redirigir-registros" method="post">
+                <button id="btn_SingUp" tyoe="submit" class="btnSingUp-login" name="btnSingUp_login" id="btnSingUp_login">Registrarse</button>
+            </form>
+            <!-- <input type=button value=Atrás onclick="history.go(-1)"> Boton de ir hacia atrás -->
         </div>
     </div>
+    <!-- <footer style="position:fixed; display: flex; flex-direction: column; width: 100%; height: auto; justify-content: center; align-items: center; color: white; margin-top: -5%;">
+        <div class="content" style="text-align: center;">
+            <div><p id="fechaYHora"></p></div>
+            <div><p>ADSO 2560966</p></div>
+        </div>
+    </footer> -->
+    <script src="./js/script.js"></script>
 </body>
-</html>
+</html>ñ
