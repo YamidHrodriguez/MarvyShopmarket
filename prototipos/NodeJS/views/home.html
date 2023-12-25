@@ -20,9 +20,24 @@
             <div class="profile_menu" id="profile_menu">
                 <div class="profile_circle" id="profile_circle"></div>
                 <!--icono de menu-->
-                <i class="fas fa-bars" id="menu_hamburguesa" class="menu_hamburguesa" ></i>
+                <i class="fas fa-bars" id="menu_hamburguesa" class="menu_hamburguesa" onclick="menu_desplegable()"></i></i>
             </div>
         </header>
+        <div class="menu_desplegable" id="menu_desplegable" >
+            <div id="cerrar_menu"><i class="fas fa-times" onclick="cerrar_menu()"></i></div>
+            <div id="profile-preview" class="profile-preview">
+                <div class="profile_circle_2" id="profile_circle_2"></div>
+                <div class="profile_name" id="profile_name">Name</div>
+            </div>
+            <ul id="ul_menu_desplegable">
+                <!--cerrar menu-->
+               
+                <li><i class="fas fa-user"></i><a href="/profile">Perfil</a></li>
+                <li><i class="fas fa-file-invoice"></i><a href="/informes-recibos">Recibos e informes</a></li>
+                <li><i class="fas fa-database"></i><a href="/copia-seguridad">Copia de seguridad</a></li>
+                <li><i class="fas fa-cog"></i><a href="/ajustes">Ajustes</a></li>
+            </ul>
+        </div>
         <main class="main_home" id="main_home">
             <div class="content_home" id="content_home">
                 <div class="desplegable_Opc" id="desplegable_Opc"><h2>Ventas</h2></div>

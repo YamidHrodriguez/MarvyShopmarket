@@ -14,4 +14,18 @@ setInterval(actualizarFechaYHora, 1000);
 // Llama a la función para mostrar la fecha y hora inicial
 actualizarFechaYHora();
 
-//función para mostrar cargando...  animacion de puntos suspensivos
+// Función para el menú desplegable
+function menu_desplegable() {
+    var menu = document.getElementById("menu_desplegable");
+    if (menu.style.display === "none") {
+        menu.style.display = "flex";
+    } else {
+        menu.style.display = "none";
+    }
+}
+
+// Función para cerrar el menú desplegable
+function cerrar_menu() {
+    var menu = document.getElementById("menu_desplegable");
+    menu.style.display = "none";
+}
