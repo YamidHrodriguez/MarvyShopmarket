@@ -37,3 +37,5 @@ function cerrar_menu() {
     var fondo = document.getElementById("fondo_oscuro");
     fondo.style.display = "none";
 }
+
+
