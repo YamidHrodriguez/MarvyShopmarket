@@ -96,6 +96,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'loading.html'));
 });
 
+app.get('/redirigir-login'),(res,req)=>{
+  setTimeout(function() {
+    res.redirect("/login");
+    window.alert("Han pasado 5 segundos, Bienvenid@ a Marvy Shopmarket :3");
+}, 5000);
+}
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
@@ -152,3 +158,7 @@ app.post('/comprobar',(req,res)=>{
 app.get('/home',(req,res) =>{
   res.sendFile(path.join(__dirname, 'views', 'home.html'));
 });
+
+app.get('/login',(req,res) =>{
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+})
