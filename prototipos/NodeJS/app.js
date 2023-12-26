@@ -6,7 +6,9 @@ const port = 1111;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { verify } = require('crypto');
-const mysql = require('mysql');
+const mysql = require('mysql2'); 
+const bcrypt = require('bcrypt');
+
 // Configura la conexión
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -23,24 +25,37 @@ connection.connect((err) => {
     console.log('Conexión exitosa a MySQL');
     // Ahora puedes realizar consultas
   }
+
 });
 
-function registrarUser(id,tabla,tipo,dataToAdd,res,connection){
-  // Realizar la consulta de inserción
-  console.log(tipo)
+const hashPassword = (password) => {
+  return new Promise((resolve, reject) => {
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(hashedPassword);
+      }
+    });
+  });
+}
 
- const sql = `INSERT INTO ${tabla} (${tipo}Id,${tipo}Usuario,${tipo}Contraseña,${tipo}Correo) VALUES (?, ?, ?, ?)`;
- const values = [id, dataToAdd.username, dataToAdd.password, dataToAdd.email];
- 
- connection.query(sql, values, (error, results) => {
-   if (error) {
-     console.error('Error al insertar en la base de datos:', error);
-     res.status(500).send('Error interno del servidor');
-   } else {
-     console.log('Registro agregado a la base de datos con éxito');
-     return res.redirect("/home");
-   }
- });
+
+
+function registrarUser(id,tabla,tipo,dataToAdd,res,connection){
+  const sql = `INSERT INTO ${tabla} (${tipo}Id,${tipo}Usuario,${tipo}Contraseña, ${tipo}Correo) VALUES (?, ?, ?, ?)`;
+  const values = [id, dataToAdd.username, dataToAdd.password, dataToAdd.email];
+  
+  connection.query(sql, values, (error, results) => {
+    if (error) {
+      console.error('Error al insertar en la base de datos:', error);
+      res.status(500).send('Error interno del servidor');
+    } else {
+      console.log('Registro agregado a la base de datos con éxito');
+      res.redirect("/home");
+      return;
+    }
+  });  
 }
 
 function registrarTienda(tabla,tipo,dataToAdd,res,connection){
@@ -50,26 +65,62 @@ function registrarTienda(tabla,tipo,dataToAdd,res,connection){
   connection.query(sql, values, (error, results) => {
     if (error) {
       console.error('Error al insertar en la base de datos:', error);
-      res.status(500).send('Error interno del servidor');
+      res.status(500).send('Error interno del servidor');ñ
     } else {
-      console.log('Registro agregado a la base de datos con éxito');
-      return res.redirect("/home");
+      console.log('Registro agregado a la base de datos con válido');
+      return;
     }
-  });  
-}
+  });
+};
 
+function verificarCredenciales(usuario, contrasena, tabla_Tendero, dataToAdd, res, connection) {
+  const usuario_cliente = dataToAdd.user;
+  const password_cliente = dataToAdd.password;
 
-function verifyUser(dataToAdd,res,connection){
-  const sql = `SELECT ${ten_Usuario} FROM ${Tendero}`;
-  // const values = [dataToAdd.id, dataToAdd.name, dataToAdd.tel, dataToAdd.ubicacion];
-  
-  connection.query(sql, (error, results) => {
-    if (error) {
-      console.error('Error al insertar en la base de datos:', error);
-      res.status(500).send('Error interno del servidor');
+  const usuariosQuery = 'SELECT ' + usuario + ' FROM ' + tabla_Tendero;
+  const contrasenaQuery = 'SELECT ' + contrasena + ' FROM ' + tabla_Tendero;
+
+  connection.query(usuariosQuery, (errUsuarios, resultsUsuarios, fieldsUsuarios) => {
+    if (errUsuarios) {
+      console.error('Error al ejecutar la consulta de usuarios:', errUsuarios);
+      return res.redirect('/login');
     } else {
-      console.log(`Registro agregado a la base de datos con éxito: ${sql}`);
-      return res.redirect("/home");
+      console.log('Resultados del login: ', usuario_cliente);
+      console.log('Resultados de la consulta de usuarios:', resultsUsuarios);
+
+      const existeUsuario = resultsUsuarios.some(
+        (item) => item[usuario] === usuario_cliente
+      );
+
+      if (existeUsuario) {
+        console.log('Usuario correcto');
+
+        connection.query(contrasenaQuery, (errContrasena, resultsContrasena, fieldsContrasena) => {
+          if (errContrasena) {
+            console.error('Error al ejecutar la consulta de contraseña:', errContrasena);
+            return res.redirect('/login');
+          } else {
+            console.log('Resultados de la consulta de contraseña:', resultsContrasena);
+            console.log('Resultado consulta contraseña cliente: ', password_cliente);
+
+            const contrasenaCorrecta = resultsContrasena.some(
+              (item) => item[contrasena] === password_cliente
+            );
+
+            if (contrasenaCorrecta) {
+              console.log('Usuario y contraseña correctos');
+              res.redirect('/home');
+            } else {
+              console.log('Usuario y contraseña incorrectos');
+              res.redirect('/login');
+            }
+          }
+        });
+
+      } else {
+        console.log('Usuario incorrecto');
+        res.redirect('/login');
+      }
     }
   });
 }
@@ -96,12 +147,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'loading.html'));
 });
 
-app.get('/redirigir-login'),(res,req)=>{
+app.get('/redirigir-login', (req, res) => {
   setTimeout(function() {
     res.redirect("/login");
-    window.alert("Han pasado 5 segundos, Bienvenid@ a Marvy Shopmarket :3");
-}, 5000);
-}
+  }, 5000);
+});
+
+
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
@@ -110,7 +162,7 @@ app.listen(port, () => {
 app.post('/procesar-datos', (req,res) => {
    // Obtener el valor del input desde la solicitud
   const user_Name  = req.body.usuario_singUp;
-  const user_Password = req.body.usuario_singUp;
+  const user_Password = req.body.password_singUp;
   const user_Correo = req.body.email_singUp;
   const tienda_Nom = req.body.nombre_tienda;
   const tienda_Id = req.body.id_tienda;
@@ -143,17 +195,19 @@ app.post('/redirigir-registros', (req, res) => {
 app.get('/registrarse', (req,res) =>{
   res.sendFile(path.join(__dirname, 'views', 'registro.html'));
 })
-app.post('/comprobar',(req,res)=>{
+app.post('/comprobar', (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
-  const dataToVerify= {
+  const dataToVerify = {
     user: user,
     password: password
   }
-  console.log(req.body,dataToVerify)
-  // verifyUser('ten_Usuario','Tendero',dataToVerify,res,connection)
-  return res.redirect("/home");
+
+  console.log(req.body, dataToVerify);
+
+  verificarCredenciales('ten_Usuario', 'ten_Contraseña', 'Tendero', dataToVerify, res, connection);
 });
+
 
 app.get('/home',(req,res) =>{
   res.sendFile(path.join(__dirname, 'views', 'home.html'));
