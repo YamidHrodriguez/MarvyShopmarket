@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvy Shopmarket | Home</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <!--importa los iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!--Coloca el icono de una tienda-->
+    <link rel="icon" type="image/png" href="./images/Marvy_Shop.png">
+</head>
+<body>
+    <div class="container" id="container_home">
+        <header>
+            <div class="marvy_ShopmarketInfo" id="marvy_ShopmarketInfo">
+                <img src="./images/Marvy_Shopmarket.png" alt="logo Marvy Shopmarket" id="logo_Home" class="logo_Home">
+                <div class="title_home" id="title_home"><h1>Marvy Shopmarket</h1></div>
+            </div>
+            <div class="profile_menu" id="profile_menu">
+                <div class="profile_circle" id="profile_circle"></div>
+                <!--icono de menu-->
+                <i class="fas fa-bars" id="menu_hamburguesa" class="menu_hamburguesa" onclick="menu_desplegable()"></i></i>
+            </div>
+        </header>
+        <div class="fondo_oscuro" id="fondo_oscuro" >
+                <div id="menu_desplegable">
+                    <div id="cerrar_menu"><i class="fas fa-times" onclick="cerrar_menu()"></i></div>
+                <div id="profile-preview" class="profile-preview">
+                    <div class="profile_circle_2" id="profile_circle_2"></div>
+                    <div class="profile_name" id="profile_name">Name</div>
+                </div>
+                    <ul id="ul_menu_desplegable">
+                        <!--cerrar menu-->
+                    
+                        <li><i class="fas fa-user"></i><a href="/profile">Perfil</a></li>
+                        <li><i class="fas fa-file-invoice"></i><a href="/informes-recibos">Recibos e informes</a></li>
+                        <li><i class="fas fa-database"></i><a href="/copia-seguridad">Copia de seguridad</a></li>
+                        <li><i class="fas fa-cog"></i><a href="/ajustes">Ajustes</a></li>
+                    </ul>   
+                </div>    
+            </div>
+            
+        <main class="main_home" id="main_home">
+            <div class="content_home" id="content_home">
+                <div class="desplegable_Opc" id="desplegable_Opc"><h2>Ventas</h2></div>
+                <div class="tabla_main" id="tabla_main"></div>
+            </div>
+        </main>
+        <footer id="footer_home">
+            <p class="fechaYHora" id="fechaYHora"></p>
+        </footer>
+    </div> 
+    <script src="./js/script.js"></script>
+</body>
+</html>
