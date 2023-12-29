@@ -23,6 +23,7 @@
                 <i class="fas fa-bars" id="menu_hamburguesa" class="menu_hamburguesa" onclick="menu_desplegable()"></i></i>
             </div>
         </header>
+        <div id="mensajeDiv" style="display: none; text-align: center; position: absolute;"></div>
         <div class="fondo_oscuro" id="fondo_oscuro" >
                 <div id="menu_desplegable">
                     <div id="cerrar_menu"><i class="fas fa-times" onclick="cerrar_menu()"></i></div>
@@ -51,6 +52,39 @@
             <p class="fechaYHora" id="fechaYHora"></p>
         </footer>
     </div> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var registroExitoso = urlParams.get('registroExitoso');
+            var inicioSesion = urlParams.get('inicioSesion');
+            var nombreUsuario = urlParams.get('nombreUsuario');
+            var mensajeDiv = document.getElementById("mensajeDiv");
+        
+            if (registroExitoso === 'true') {
+            // Mostrar mensaje de registro exitoso
+            mensajeDiv.innerHTML = "<h1>Te has registrado con éxito, bienvenido</h1>";
+            mensajeDiv.style.display = "flex";
+             setInterval(function () {
+                 window.location.href = "/home";
+            }, 1500);
+            setTimeout(function () {
+                mensajeDiv.style.display = "none";
+            }, 5000);
+            } else if (inicioSesion === 'true') {
+            // Mostrar mensaje de inicio de sesión exitoso
+           
+            mensajeDiv.innerHTML = "<h1>Bienvenido " + nombreUsuario + "</h1>";
+            mensajeDiv.style.display = "flex";
+            setInterval(function () {
+                 window.location.href = "/home";
+            }, 1500);
+            
+            setTimeout(function () {
+                mensajeDiv.style.display = "none";
+            }, 5000);
+            }
+        });
+    </script>
     <script src="./js/script.js"></script>
 </body>
 </html>
