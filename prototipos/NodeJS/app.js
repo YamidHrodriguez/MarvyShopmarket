@@ -52,7 +52,7 @@ function registrarUser(id,tabla,tipo,dataToAdd,res,connection){
       res.status(500).send('Error interno del servidor');
     } else {
       console.log('Registro agregado a la base de datos con éxito');
-      res.redirect("/home");
+      res.redirect("/home?registroExitoso=true");
       return;
     }
   });  
@@ -109,7 +109,7 @@ function verificarCredenciales(usuario, contrasena, tabla_Tendero, dataToAdd, re
 
             if (contrasenaCorrecta) {
               console.log('Usuario y contraseña correctos');
-              res.redirect('/home');
+              res.redirect('/home?inicioSesion=true&nombreUsuario=' + usuario_cliente);
             } else {
               console.log('Usuario y contraseña incorrectos');
               res.redirect('/login');
