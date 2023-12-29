@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!--Coloca el icono de una tienda-->
     <link rel="icon" type="image/png" href="./images/Marvy_Shop.png">
+    <!--No permitir ir hacia atras en la pagina-->
+    <script>
+        function bloquearRetroceso() {
+            history.pushState(null, null, location.href);
+            window.onpopstate = function () {
+                history.go(1);
+            };
+        }
+    
+        // Agregar un event listener para el evento 'load'
+        window.addEventListener('load', bloquearRetroceso);
+    </script>
+    
+    
 </head>
 <body>
     <div class="container" id="container_home">
@@ -18,6 +32,8 @@
                 <div class="title_home" id="title_home"><h1>Marvy Shopmarket</h1></div>
             </div>
             <div class="profile_menu" id="profile_menu">
+                <!--Icono de salir-->
+                <a href="/login" style="text-decoration: none; color: white"><i class="fas fa-sign-out-alt" id="salir" onclick="salir()" style="display: flex; transform: rotate(180deg); margin-right: 10px;"></i></a>
                 <div class="profile_circle" id="profile_circle"></div>
                 <!--icono de menu-->
                 <i class="fas fa-bars" id="menu_hamburguesa" class="menu_hamburguesa" onclick="menu_desplegable()"></i></i>

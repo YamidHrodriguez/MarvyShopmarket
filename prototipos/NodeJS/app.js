@@ -142,6 +142,14 @@ app.set('view engine', 'html');
 // Configurar middleware para analizar datos del formulario
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Middleware para evitar el almacenamiento en caché
+app.use((req, res, next) => {
+  res.header('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.header('Pragma', 'no-cache');
+  res.header('Expires', '0');
+  next();
+});
+
 // Ruta para la página principal
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'loading.html'));

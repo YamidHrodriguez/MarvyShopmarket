@@ -6,6 +6,20 @@
     <title>Marvy Shopmarket | login</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="icon" type="image/png" href="./images/Marvy_Shop.png">
+    <!--No permitir ir hacia atras en la pagina-->
+    <script>
+        function bloquearRetroceso() {
+            history.pushState(null, null, location.href);
+            window.onpopstate = function () {
+                history.go(1);
+            };
+        }
+    
+        // Agregar un event listener para el evento 'load'
+        window.addEventListener('load', bloquearRetroceso);
+    </script>
+    
+    
 </head>
 <body>
     <div id="container_login" class="container">
