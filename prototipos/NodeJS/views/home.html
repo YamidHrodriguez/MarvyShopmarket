@@ -8,7 +8,7 @@
     <!--importa los iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!--Coloca el icono de una tienda-->
-    <link rel="icon" type="image/png" href="./images/Marvy_Shop.png">
+    <link rel="icon" type="image/png" href="./images/Marvy_Shopmarket.png">
     <!--No permitir ir hacia atras en la pagina-->
     <script>
         function bloquearRetroceso() {
@@ -28,7 +28,7 @@
     <div class="container" id="container_home">
         <header>
             <div class="marvy_ShopmarketInfo" id="marvy_ShopmarketInfo">
-                <img src="./images/Marvy_Shopmarket.png" alt="logo Marvy Shopmarket" id="logo_Home" class="logo_Home">
+                <img src="./images/Marvy.png" alt="logo Marvy Shopmarket" id="logo_Home" class="logo_Home">
                 <div class="title_home" id="title_home"><h1>Marvy Shopmarket</h1></div>
             </div>
             <div class="profile_menu" id="profile_menu">
@@ -62,6 +62,21 @@
             <div class="content_home" id="content_home">
                 <div class="desplegable_Opc" id="desplegable_Opc"><h2>Ventas</h2></div>
                 <div class="tabla_main" id="tabla_main"></div>
+                <button type="button" class="circle_opc" id="circle_opc" onclick="toggleMenu()">
+                    <i class="fas fa-plus" style="font-size: 2rem; color: white; cursor:pointer;"></i>
+                </button>
+                <div  class="menu_desplegable_2" id="menu_desplegable_2">
+                    <ul>
+                        <a href=""><li>Registrar ventas</li></a>
+                        <a href=""><li>Editar registro de ventas</li></a>
+                        <a href=""><li>Eliminar registro de ventas</li></a>
+                        <a href=""><li>Registrar suministro</li></a>
+                        <a href=""><li>Crear nuevo producto</li></a>
+                        <a href=""><li>Editar producto</li></a>
+                        <a href=""><li>Eliminar producto</li></a>
+                        <a href=""><li>Registrar proveedor</li></a>
+                    </ul>
+                </div>
             </div>
         </main>
         <footer id="footer_home">
