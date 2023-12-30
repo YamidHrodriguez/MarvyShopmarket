@@ -65,6 +65,8 @@
             </div>
         </main>
         <footer id="footer_home">
+            <!--Icono de reloj-->
+            <i class="far fa-clock" id="reloj" style="display: flex; margin-right: 10px;"></i>
             <p class="fechaYHora" id="fechaYHora"></p>
         </footer>
     </div> 
@@ -78,22 +80,22 @@
         
             if (registroExitoso === 'true') {
             // Mostrar mensaje de registro exitoso
-            mensajeDiv.innerHTML = "<h1>Te has registrado con éxito, bienvenido</h1>";
+            mensajeDiv.innerHTML = "<p><span>Registro exitoso</span>Bienvenid@ a Marvy Shopmarket "+nombreUsuario+"<img src='https://pngimg.com/d/welcome_PNG49.png' style='width:100px; height: 100px;padding-top: 0%;'></p>";
             mensajeDiv.style.display = "flex";
              setInterval(function () {
                  window.location.href = "/home";
-            }, 1500);
+            }, 2000);
             setTimeout(function () {
                 mensajeDiv.style.display = "none";
             }, 5000);
             } else if (inicioSesion === 'true') {
             // Mostrar mensaje de inicio de sesión exitoso
            
-            mensajeDiv.innerHTML = "<h1>Bienvenido " + nombreUsuario + "</h1>";
+            mensajeDiv.innerHTML = "<p><span>Bienvenido</span>" + nombreUsuario + "<p/><img src='https://cdn-icons-png.flaticon.com/512/494/494491.png' style='margin-top: -15%;width:200px; height:200px;'>";
             mensajeDiv.style.display = "flex";
             setInterval(function () {
                  window.location.href = "/home";
-            }, 1500);
+            }, 2000);
             
             setTimeout(function () {
                 mensajeDiv.style.display = "none";
