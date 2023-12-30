@@ -42,9 +42,9 @@ const hashPassword = (password) => {
 
 
 
-function registrarUser(id,tabla,tipo,dataToAdd,res,connection){
-  const sql = `INSERT INTO ${tabla} (${tipo}Id,${tipo}Usuario,${tipo}Contraseña, ${tipo}Correo) VALUES (?, ?, ?, ?)`;
-  const values = [id, dataToAdd.username, dataToAdd.password, dataToAdd.email];
+function registrarUser(tabla,tipo,dataToAdd,res,connection){
+  const sql = `INSERT INTO ${tabla} (${tipo}Usuario,${tipo}Contraseña, ${tipo}Correo) VALUES (?, ?, ?)`;
+  const values = [dataToAdd.username, dataToAdd.password, dataToAdd.email];
   
   connection.query(sql, values, (error, results) => {
     if (error) {
@@ -52,7 +52,7 @@ function registrarUser(id,tabla,tipo,dataToAdd,res,connection){
       res.status(500).send('Error interno del servidor');
     } else {
       console.log('Registro agregado a la base de datos con éxito');
-      res.redirect("/home?registroExitoso=true");
+      res.redirect("/home?registroExitoso=true&nombreUsuario=" + dataToAdd.username);
       return;
     }
   });  
@@ -83,7 +83,7 @@ function verificarCredenciales(usuario, contrasena, tabla_Tendero, dataToAdd, re
   connection.query(usuariosQuery, (errUsuarios, resultsUsuarios, fieldsUsuarios) => {
     if (errUsuarios) {
       console.error('Error al ejecutar la consulta de usuarios:', errUsuarios);
-      return res.redirect('/login');
+      return res.redirect('/login?inicioSesion=false');
     } else {
       console.log('Resultados del login: ', usuario_cliente);
       console.log('Resultados de la consulta de usuarios:', resultsUsuarios);
@@ -98,7 +98,7 @@ function verificarCredenciales(usuario, contrasena, tabla_Tendero, dataToAdd, re
         connection.query(contrasenaQuery, (errContrasena, resultsContrasena, fieldsContrasena) => {
           if (errContrasena) {
             console.error('Error al ejecutar la consulta de contraseña:', errContrasena);
-            return res.redirect('/login');
+            return res.redirect('/login?inicioSesion=false');
           } else {
             console.log('Resultados de la consulta de contraseña:', resultsContrasena);
             console.log('Resultado consulta contraseña cliente: ', password_cliente);
@@ -112,14 +112,14 @@ function verificarCredenciales(usuario, contrasena, tabla_Tendero, dataToAdd, re
               res.redirect('/home?inicioSesion=true&nombreUsuario=' + usuario_cliente);
             } else {
               console.log('Usuario y contraseña incorrectos');
-              res.redirect('/login');
+              res.redirect('/login?inicioSesion=false');
             }
           }
         });
 
       } else {
         console.log('Usuario incorrecto');
-        res.redirect('/login');
+        res.redirect('/login?inicioSesion=false');
       }
     }
   });
@@ -191,7 +191,7 @@ app.post('/procesar-datos', (req,res) => {
 
   // Log de los datos para verificar
   console.log(req.body, dataToAddUser, dataToAddTienda);
-  registrarUser(0,"Tendero","ten_",dataToAddUser,res,connection);
+  registrarUser("Tendero","ten_",dataToAddUser,res,connection);
   registrarTienda("Tienda","tien_",dataToAddTienda,res,connection)
   
 });
