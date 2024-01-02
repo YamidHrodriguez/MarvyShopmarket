@@ -574,17 +574,22 @@ header #logo_Home{
 }
 #main_home #content_home #desplegable_Opc{
     width: 40%;
-    height: 50px;
-    margin-top: 0%;
+    height: 40px;
+    margin: 1%;
     border-radius: 10px;
     background: #00BF66;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    flex-direction: row-reverse;
+    cursor:pointer
 }
 #main_home #content_home #desplegable_Opc h2{
     font-weight: normal;
+    margin-right: -10%;
+    width: 100%;
+    text-align: center;
 }
 #circle_opc{
     width: 77px;
