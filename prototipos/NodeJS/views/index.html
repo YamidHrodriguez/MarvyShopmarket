@@ -6,18 +6,6 @@
     <title>Marvy Shopmarket | login</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="icon" type="image/png" href="./images/Marvy_Shopmarket.png">
-    <!--No permitir ir hacia atras en la pagina-->
-    <script>
-        function bloquearRetroceso() {
-            history.pushState(null, null, location.href);
-            window.onpopstate = function () {
-                history.go(1);
-            };
-        }
-    
-        // Agregar un event listener para el evento 'load'
-        window.addEventListener('load', bloquearRetroceso);
-    </script>
 </head>
 <body>
     <div id="mensajeDiv2" style=" text-align: center; position: absolute;"></div>
@@ -43,15 +31,9 @@
             <form  id="submit_SingUp" action="/redirigir-registros" method="post">
                 <button id="btn_SingUp" tyoe="submit" class="btnSingUp-login" name="btnSingUp_login" id="btnSingUp_login">Registrarse</button>
             </form>
-            <!-- <input type=button value=Atrás onclick="history.go(-1)"> Boton de ir hacia atrás -->
         </div>
     </div>
-    <!-- <footer style="position:fixed; display: flex; flex-direction: column; width: 100%; height: auto; justify-content: center; align-items: center; color: white; margin-top: -5%;">
-        <div class="content" style="text-align: center;">
-            <div><p id="fechaYHora"></p></div>
-            <div><p>ADSO 2560966</p></div>
-        </div>
-    </footer> -->
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var urlParams = new URLSearchParams(window.location.search);
@@ -61,8 +43,8 @@
             var form_login = document.getElementById("container_login")
             var registro = document.getElementById("submit_SingUp");
             var body = document.querySelector('body');
+            
             if (inicioSesion === 'false') {
-                // Mostrar mensaje de registro exitoso
                 mensajeDiv2.innerHTML = "<p><span>Inicio de sesión fallida</span> Usuario y contraseña incorrectos<img src='https://cdn-icons-png.flaticon.com/512/221/221755.png' style='width: 100px; height: 100px;margin-top: 2%;'></p>";
                 mensajeDiv2.style.display = "flex";
                 mensajeDiv2.style.paddingBottom = "0%"
