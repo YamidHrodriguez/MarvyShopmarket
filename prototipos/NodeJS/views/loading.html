@@ -19,7 +19,8 @@
     <script>
         setTimeout(function() {
             window.location.href = "/login";
-            
+        }, 5000);
+
         function actualizarTexto() {
             var cargando = document.getElementById("cargando");
             cargando.textContent = "Cargando";
@@ -33,7 +34,7 @@
                 cargando.textContent = "Cargando...";
             }, 3000);
             }
-        });
+
         setInterval(actualizarTexto, 1500);
       </script>
     <script src="./js/script.js"></script>
