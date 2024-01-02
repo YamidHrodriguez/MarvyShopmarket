@@ -9,7 +9,7 @@ const { verify } = require('crypto');
 const mysql = require('mysql2'); 
 const bcrypt = require('bcrypt');
 
-// Configura la conexión
+// Conexion con la base de datos
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -17,30 +17,16 @@ const connection = mysql.createConnection({
   database: 'Marvy_Shopmarket'
 });
 
-// Conéctate a la base de datos
+
 connection.connect((err) => {
   if (err) {
     console.error('Error al conectar a MySQL:', err);
   } else {
     console.log('Conexión exitosa a MySQL');
-    // Ahora puedes realizar consultas
+    
   }
 
 });
-
-const hashPassword = (password) => {
-  return new Promise((resolve, reject) => {
-    bcrypt.hash(password, 10, (err, hashedPassword) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(hashedPassword);
-      }
-    });
-  });
-}
-
-
 
 function registrarUser(tabla,tipo,dataToAdd,res,connection){
   const sql = `INSERT INTO ${tabla} (${tipo}Usuario,${tipo}Contraseña, ${tipo}Correo) VALUES (?, ?, ?)`;
@@ -176,7 +162,8 @@ app.post('/procesar-datos', (req,res) => {
   const tienda_Id = req.body.id_tienda;
   const tienda_Tel = req.body.contacto_tienda;
   const tienda_Ubi = req.body.ubi_tienda;
-
+  
+  //organizar los datos en diccionarios
   const dataToAddUser = {
     username: user_Name,
     password: user_Password,
@@ -189,7 +176,6 @@ app.post('/procesar-datos', (req,res) => {
     ubicacion: tienda_Ubi
   }
 
-  // Log de los datos para verificar
   console.log(req.body, dataToAddUser, dataToAddTienda);
   registrarUser("Tendero","ten_",dataToAddUser,res,connection);
   registrarTienda("Tienda","tien_",dataToAddTienda,res,connection)
@@ -197,12 +183,13 @@ app.post('/procesar-datos', (req,res) => {
 });
 
 app.post('/redirigir-registros', (req, res) => {
-  // Obtener el valor del input desde la solicitud
   return res.redirect('/registrarse');
 });
+
 app.get('/registrarse', (req,res) =>{
   res.sendFile(path.join(__dirname, 'views', 'registro.html'));
 })
+
 app.post('/comprobar', (req, res) => {
   const user = req.body.user;
   const password = req.body.password;
@@ -210,9 +197,7 @@ app.post('/comprobar', (req, res) => {
     user: user,
     password: password
   }
-
   console.log(req.body, dataToVerify);
-
   verificarCredenciales('ten_Usuario', 'ten_Contraseña', 'Tendero', dataToVerify, res, connection);
 });
 
